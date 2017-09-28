@@ -5,6 +5,7 @@ const ROOT_URL = '';
 export const FETCH_COVER   = 'FETCH_COVER';
 export const SEARCH_COMIC  = 'SEARCH_COMIC';
 export const FETCH_COMIC 	 = 'FETCH_COMIC';
+export const RESET_COMIC 	 = 'RESET_COMIC';
 export const LOADING_START = 'LOADING_START';
 export const LOADING_END   = 'LOADING_END';
 export const UPVOTE        = 'UPVOTE';
@@ -69,5 +70,9 @@ export const actions = {
 					dispatch({type: FETCH_COMIC, payload: response});
 				})
 		}
+	},
+
+	resetComic() {
+		return dispatch => dispatch({type: RESET_COMIC});
 	}
 }
