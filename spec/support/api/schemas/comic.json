@@ -1,0 +1,85 @@
+{
+	"type": "object",
+	"properties": {
+  	"id": {
+  	  "type": "integer"
+  	},
+  	"title": {
+  	  "type": "string"
+  	},
+    "dates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "date"
+        ]
+      }
+    },
+    "thumbnail": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "extension": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "extension"
+      ]
+    },
+    "issueNumber": {
+      "type": "integer"
+    },
+		"variantDescription": {
+			"type": "string"
+		},
+		"isbn": {
+			"type:": "string"
+		},
+		"characters": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"type": "array"
+				}
+			}
+		},
+		"images": {
+			"type": "array"
+		},
+		"creators": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"type": "array"
+				}
+			}
+		}
+
+  },
+  "required": [
+    "id",
+    "title",
+    "dates",
+    "thumbnail",
+    "issueNumber",
+    "variantDescription",
+    "isbn",
+    "characters",
+		"images",
+		"creators"
+  ]
+}

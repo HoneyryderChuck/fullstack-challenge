@@ -11,6 +11,13 @@ class Api::ComicsController < ApplicationController
     end
   end
 
+	def show
+		comic = FetchComic.perform(params[:id], search_params: comic_params)
+		if comic.success?
+			respond_with comic.result.first, :represent_items_with => ComicRepresenter
+		end
+	end
+
   def upvotes
     up_votes = FetchUpVotes.perform
     respond_with up_votes.result, :represent_items_with => UpVotesRepresenter
