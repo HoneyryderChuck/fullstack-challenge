@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import ComicList from './components/ComicList';
 import ComicDialog from './components/ComicDialog';
-import Searchbar from './components/Searchbar';
+import Searchbar from './components/searchbar';
 import Loading from './components/Loading';
 
 class App extends Component {
