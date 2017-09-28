@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { actions } from '../../actions/index.js';
 import './Cover.css';
 import _ from 'lodash';
 
-export default class Cover extends Component {
+class Cover extends Component {
     constructor(props) {
       super(props);
       this.state = { image_size: this.imageSize(window.innerWidth), mouseOver: false }
+			this.selectComic = this.selectComic.bind(this)
     }
 
     static propTypes = {
@@ -33,6 +36,10 @@ export default class Cover extends Component {
     showDetails(show) {
       this.setState({ mouseOver: show })
     }
+
+		selectComic() {
+			this.props.selectComic(this.props.comicData.id)
+		}
 
     coverDate() {
       const date = _.find(this.props.comicData.dates, ['type', 'onsaleDate']);
@@ -73,9 +80,9 @@ export default class Cover extends Component {
     render() {
       return (
         <div className="pure-u-23-24 pure-u-md-1-4 pure-u-lg-1-5"
-          onMouseEnter={ this.showDetails.bind(this, true) }
+ 					onMouseEnter={ this.showDetails.bind(this, true) }
           onMouseLeave={ this.showDetails.bind(this, false) }>
-          <div className="cover">
+          <div className="cover" onClick={this.selectComic}>
             <img className="cover-image" alt={ this.props.comicData.title } src={ this.coverImage.call(this) } />
             { this.renderDetail() }
             { this.coverUpvoted() }
@@ -84,3 +91,5 @@ export default class Cover extends Component {
       );
     }
 }
+
+export default connect(null, actions)(Cover)

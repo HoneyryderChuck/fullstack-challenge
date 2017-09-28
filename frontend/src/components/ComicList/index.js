@@ -107,6 +107,7 @@ class ComicList extends Component {
 
 function mapStateToProps(state) {
   return {
+    comic: state.comic,
     comics: state.comics,
     search_term: state.search_term,
     up_votes: state.up_votes
